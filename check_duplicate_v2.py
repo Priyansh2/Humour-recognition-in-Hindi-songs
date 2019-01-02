@@ -8,7 +8,7 @@ script_path = os.getcwd()
 print script_path
 print os.getcwd()
 audio_dir=os.path.join(script_path,"trimmed_audio")
-songlists=["lb_songs","5th_sem_songs","new_songs"]
+songlists=["funny","not_funny"]
 all_songs=[]
 for songlist in songlists:
     for audio_file in os.listdir(os.path.join(audio_dir,songlist)):
@@ -22,19 +22,19 @@ temp={}
 for s1 in all_songs:
     for s2 in all_songs:
         if s1!=s2:
-	    #print s1,s2
+        #print s1,s2
             temp[(s1,s2)]=diff.equal(s1,s2)
             cnt+=1
             #print diff.equal(s1,s2),cnt
 
 out_path=os.path.join(script_path,"results")
 if not os.path.exists(out_path):
-	os.makedirs(out_path)
-	
+    os.makedirs(out_path)
+    
 with open("results/duplicate_removal.pickle","wb") as fl:
-	pickle.dump(temp,fl)
+    pickle.dump(temp,fl)
 with open("results/duplicate_removal.pickle","rb") as fl:
-	temp = pickle.load(fl)
+    temp = pickle.load(fl)
 
 for s1,s2 in temp:
     if temp[(s1,s2)]:
