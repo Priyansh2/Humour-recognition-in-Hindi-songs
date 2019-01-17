@@ -54,8 +54,9 @@ for s1,s2 in temp1:
 print("----------------------------------------------\n")
 for s1,s2 in temp2:
     if temp2[(s1,s2)]:
-        print "{}, {}, {}, {}".format(s1.split("/")[-2],s2.split("/")[-2],s1,s2)
-print("----------------------------------------------\n")        
-for s1,s2 in temp3:
-    if temp3[(s1,s2)]:
-        print "{}, {}, {}, {}".format(s1.split("/")[-2],s2.split("/")[-2],s1,s2)                
+        if temp2[(s1,s2)]!=temp1[(s1,s2)]:
+            print "{}, {}, {}, {}".format(s1.split("/")[-2],s2.split("/")[-2],s1,s2)
+#print("----------------------------------------------\n")        
+#for s1,s2 in temp3:
+    #if temp3[(s1,s2)]:
+        #print "{}, {}, {}, {}".format(s1.split("/")[-2],s2.split("/")[-2],s1,s2)                
